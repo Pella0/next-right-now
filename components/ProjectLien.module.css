@@ -1,0 +1,75 @@
+.cardProjet {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+}
+.card {
+  width: 40vw; /*1*/
+  margin: 0px auto; /*2*/
+  background-color: white; /*3*/
+  box-shadow: 0px 5px 20px #999; /*4*/
+  margin: 10px;
+}
+.card .Link {
+  /*5*/
+  color: #333;
+  text-decoration: none;
+}
+.card:hover .card-image img {
+  /*6*/
+  width: 70%;
+  filter: grayscale(0);
+}
+.cardImage {
+  height: 30vh; /*1*/
+  position: relative; /*2*/
+  overflow: hidden; /*3*/
+}
+.cardImage img {
+  width: 50%; /*4*/
+  /*5 - Méthode de centrage en fonction de la taille de l'image */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: grayscale(0); /*6*/
+  /*7 - Transition */
+  transition-property: filter width;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+.cardBody {
+  text-align: center; /*1*/
+  padding: 15px 20px; /*2*/
+  box-sizing: border-box; /*3*/
+}
+.cardDate {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.cardTitle,
+.cardExcerpt {
+  font-family: "Playfair Display", serif;
+}
+
+.cardDate,
+.cardTitle {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.cardDate,
+.cardExcerpt {
+  color: #777;
+}
+
+@media screen and (max-width: 640px) {
+  .cardImage {
+    height: 10vh;
+  }
+  .cardImage img {
+    width: 60%;
+  }
+}

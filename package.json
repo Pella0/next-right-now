@@ -1,22 +1,58 @@
 {
-  "name": "next-right-now-docs",
-  "version": "1.0.0",
+  "name": "next-pwa-poc",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "yarn doc:start",
-    "start:fast": "yarn doc:start:fast",
-    "preversion": "yarn lint:once && yarn test:once",
-    "release": "yarn bump --commit --tag && git add CHANGELOG.md README.md && git commit --amend --no-edit && git push && git push --tags",
-    "doc:start": "bundle exec jekyll serve --config _config-development.yml",
-    "doc:start:fast": "bundle exec jekyll serve --config _config-development.yml --incremental",
-    "doc:gem:install": "bundle install",
-    "security:audit": "yarn audit",
-    "packages:upgrade": "yarn upgrade-interactive --latest"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "resetsw-and-lauch": "rm public/sw.js && rm public/workbox-* ; next build && next start",
+    "lint": "eslint .",
+    "lint:staged": "npx lint-staged",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\""
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm-run-all lint:staged lint"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\"",
+      "eslint . --fix"
+    ]
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "next": "10.0.3",
+    "next-pwa": "^5.0.0",
+    "nextjs-progressbar": "0.0.7",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-simple-chatbot": "^0.6.1",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
-    "concurrently": "5.2.0",
-    "cross-env": "7.0.2",
-    "del-cli": "3.0.1",
-    "version-bump-prompt": "6.0.3"
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.12.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.14.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^4.3.6",
+    "lint-staged": "^10.5.3",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.1.2",
+    "typescript": "^4.1.2"
   }
 }

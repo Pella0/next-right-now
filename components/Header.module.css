@@ -1,0 +1,25 @@
+.headerContainer {
+  background-color: rgb(54, 54, 54);
+  color: white;
+}
+
+.menu {
+  margin: 0;
+  padding: 15px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.menuItem {
+  list-style-type: none;
+  margin-left: 15px;
+}
+
+.link {
+  display: flex;
+  height: 40px;
+  align-items: center;
+}
+.link:hover {
+  color: wheat;
+}

@@ -1,0 +1,11 @@
+.randomFactContainer {
+  text-align: center;
+  font-size: 30px;
+}
+
+.reloadBtnContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  margin-top: 100px;
+}
