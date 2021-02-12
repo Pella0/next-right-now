@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 import styles from "./ProjectLien.module.css";
+import { useRouter } from "next/router";
 
-const ProjetsLien = () => {
+const ProjetsLien = ({ Projets }) => {
   const [projets, setProjets] = useState([]);
+  const router = useRouter();
+  const { Projets } = router.query;
 
   useEffect(() => {
     axios
@@ -20,11 +23,7 @@ const ProjetsLien = () => {
     <div className={styles.cardProjet}>
       {projets.map((e) => (
         <div className={styles.card}>
-          <Link
-            className="Link"
-            href="/projets/[id]/[projets]"
-            as={`/projets/${e.id}`}
-          >
+          <Link className="Link" href="/projets" as={`/projets/${e.id}`}>
             <div>
               <div className={styles.cardImage}>
                 <img src={e.Logo} alt="Orange" />

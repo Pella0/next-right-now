@@ -1,20 +1,19 @@
 /* eslint-disable react/destructuring-assignment */
 import { useEffect, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import "./style/Projet.scss";
 import { Carousel } from "react-responsive-carousel";
 import axios from "axios";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
-import techMedium from "./images/techMedium.png";
 
-const Projets = (props) => {
+const Projets = ({ Projets }) => {
   const router = useRouter();
-  const { id } = router.query;
+  const { id, Projets } = router.query;
 
   const [projets, setProjets] = useState([]);
   /* const [projetsScreen, setProjetsScreen] = useState([]); */
-  const data = props.match.params;
+  /*  const data = props.match.params; */
 
   useEffect(() => {
     axios
@@ -49,13 +48,28 @@ const Projets = (props) => {
       <div className="CarrouselClient">
         <Carousel autoPlay>
           <div>
-            <img className="screen1" src={projets.screen1} alt="screen1" />
+            <Image
+              src="/images/Ju.png"
+              alt="Picture of the author"
+              width={500}
+              height={500}
+            />
           </div>
           <div>
-            <img className="screen2" src={projets.screen2} alt="screen1" />
+            <Image
+              src="/images/Ju.png"
+              alt="Picture of the author"
+              width={500}
+              height={500}
+            />
           </div>
           <div>
-            <img className="screen3" src={projets.screen3} alt="screen1" />
+            <Image
+              src="/images/Ju.png"
+              alt="Picture of the author"
+              width={500}
+              height={500}
+            />
           </div>
         </Carousel>
       </div>
